@@ -1,0 +1,42 @@
+    <body>
+      <div class="container">
+        <header>
+          <h1>Liste des taches ({{incompleteCount}})</h1> <!--incompleteCount affiche compteur de tache-->
+
+        <label class="hide-completed">
+            <input type="checkbox" />
+            Cacher les taches terminer
+        </label>
+
+          <form class="new-task">
+                <input type="text" name="text" placeholder="Ajouter une tache" />
+          </form>
+
+        </header>
+
+      <table class="table table-striped">
+
+        <ul class="">
+          {{#each tasks}}
+            {{> task}}
+          {{/each}}
+      </ul>
+
+          </table>
+
+      </div>
+
+    </body>
+
+    <template name="task">
+      <!--SUPPRIMER BOUTON-->
+      <li class="{{#if checked}}checked{{/if}}"> <!--grisé la tache quand elle est coché-->
+
+      <button class="delete">&times;</button>
+
+      <input type="checkbox" checked="{{checked}}" class="toggle-checked" />
+
+      <span class="text">{{text}}</span>
+    </li>
+
+    </template>
